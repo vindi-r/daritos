@@ -27,7 +27,7 @@ const eight = {id: "fairytale", title:"«Сказочные герои»", descr
 export const deckList: DeckElement[] = [one, two, three, four, five, six, seven, eight];
 
 
-function baseClamp(number, lower, upper) {
+function baseClamp(number:number, lower?:number, upper?:number):number {
   if (number === number) {
     if (upper !== undefined) {
       number = number <= upper ? number : upper;
@@ -38,10 +38,10 @@ function baseClamp(number, lower, upper) {
   }
   return number;
 }
-function baseRandom(lower, upper) {
+function baseRandom(lower:number, upper:number):number {
   return lower + Math.floor(Math.random() * (upper - lower + 1));
 }
-export function sampleSize<T>(collection:T[], n:number) {
+export function sampleSize<T>(collection:T[], n:number):T[] {
   let index = -1;
   const result = [...collection],
       length = result.length,
