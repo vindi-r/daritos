@@ -6,7 +6,6 @@ import useEmblaCarousel from 'embla-carousel-react'
 import {StaticImport} from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import { useRouter } from 'next/navigation'
-import Script from "next/script";
 
 type PropType = {
   selected: boolean
