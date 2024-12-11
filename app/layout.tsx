@@ -25,13 +25,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <>
+      <head>
+      <Script src="/daritos/localTMA.js" strategy="beforeInteractive" />
+      </head>
+
     <html lang="en">
-    <Script src="https://telegram.org/js/telegram-web-app.js" />
     <body
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
     {children}
     </body>
     </html>
+    </>
   );
 }
