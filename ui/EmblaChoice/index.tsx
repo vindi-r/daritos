@@ -5,7 +5,7 @@ import {EmblaOptionsType} from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import {StaticImport} from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
-import { useRouter } from 'next/navigation'
+
 
 type PropType = {
   selected: boolean
@@ -49,7 +49,6 @@ type Props = {
 
 
 export const EmblaChoice = (props: Props) => {
-  const router = useRouter()
   const {
           slides,
           options,
@@ -84,23 +83,6 @@ export const EmblaChoice = (props: Props) => {
     const label = element.replace(/.+\/(.+?)\..+/, '$1')
     alert('Выбрана картинка: ' + (label))
   }, [selectedIndex, slides])
-
-  useEffect(() => {
-    try {
-
-    // @ts-expect-error missing typings
-    const BackButton = window.Telegram.WebApp.BackButton;
-
-    BackButton.show();
-    BackButton.onClick(() => router.push('/deck'));
-    return () => {
-      BackButton.hide();
-    }
-
-    } catch (_e) {
-
-    }
-  }, [router]);
 
   return (<div className="embla">
       <div className="embla__viewport" ref={emblaMainRef}>
